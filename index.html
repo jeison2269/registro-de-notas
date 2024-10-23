@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - CALIFICACIONES </title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+                  margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #claveAcceso {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>LOGIN </h2>
+        <form id="registroAcademia" action="#" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select>
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="tipoSangre">Tipo de Sangre:</label>
+            <select id="tipoSangre" name="tipoSangre" required>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+
+            <label for="documento">Documento:</label>
+            <input type="text" id="documento" name="documento" required>
+
+            <label for="celular">Celular:</label>
+            <input type="tel" id="celular" name="celular" required>
+
+            <label for="idEstudiante">ID (Generado automáticamente):</label>
+            <input type="text" id="idEstudiante" name="idEstudiante" readonly>
+
+            <label for="rol">Rol en la Academia:</label>
+            <select id="rol" name="rol" required>
+                <option value="estudiante">Estudiante</option>
+                <option value="profesor">Profesor</option>
+                <option value="administrativo">Administrativo</option>
+            </select>
+
+            <label for="claveAcceso" id="labelClaveAcceso">Clave de Acceso (solo para Administrativos):</label>
+            <input type="password" id="claveAcceso" name="claveAcceso" placeholder="Ingrese clave '0000'" pattern="0000">
+
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <script>
+        // Función para generar un ID único automáticamente
+        function generarId() {
+            return 'ID-' + Math.floor(Math.random() * 1000000);
+        }
+
+        // Asignar el ID generado automáticamente al campo ID de Estudiante
+        document.getElementById('idEstudiante').value = generarId();
+
+        // Mostrar el campo de clave de acceso si el rol es Administrativo
+        const rol = document.getElementById('rol');
+        const claveAcceso = document.getElementById('claveAcceso');
+        const labelClaveAcceso = document.getElementById('labelClaveAcceso');
+
+        rol.addEventListener('change', function() {
+            if (rol.value === 'administrativo') {
+                claveAcceso.style.display = 'block';
+                labelClaveAcceso.style.display = 'block';
+                claveAcceso.setAttribute('required', true);
+            } else {
+                claveAcceso.style.display = 'none';
+                labelClaveAcceso.style.display = 'none';
+                claveAcceso.removeAttribute('required');
+            }
+        });
+    </script>
+
+</body>
+</html>
