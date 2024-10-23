@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #67d4ff; /* Fondo negro */
+    margin: 0;
+    padding: 20px;
+    color: #e90a0a; /* Texto blanco */
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2-QgHsstgA6n78SQAoqcSSfPqtlscCxUumw&s);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    max-width: 500px;
+    background-color: #1e1e1e; /* Fondo oscuro para el contenedor */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); 
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff; /* Color del texto de las etiquetas */
+}
+
+input, select {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #000000; /* Fondo oscuro para los cuadros de texto */
+    color: #ffffff; /* Texto blanco dentro de los cuadros */
+}
+
+input::placeholder {
+    color: #aaaaaa; /* Color de los placeholders */
+}
+
+button {
+    background-color: #28a745; /* Color verde del botón */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838; /* Color verde oscuro al pasar el mouse */
+}
+
+#claveAcceso {
+    display: none;
+}
+
+h2 {
+    color: #ffffff; /* Color del título */
+}
